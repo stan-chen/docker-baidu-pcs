@@ -1,4 +1,4 @@
-FROM alpine
+FROM ubuntu:latest
 
 MAINTAINER ChenXuefei <chenxuefei_pp@163.com>
 
