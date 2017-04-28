@@ -16,7 +16,7 @@ RUN git clone https://github.com/GangZhuo/BaiduPCS.git &&\
     cd ./BaiduPCS &&\
     make clean &&\
     make &&\
-    make install &&\
+    cp /opt/src/BaiduPCS/bin/pcs /usr/local/bin &&\
     
 RUN rm -rf /opt/src
     
