@@ -1,9 +1,11 @@
 #!/bin/bash
 
-if [ ! -d "/download$REMOTE_DIR_NAME" ]; then
+echo "检查 /download$REMOTE_NAME 是否存在"
+if [ ! -d "/download$REMOTE_NAME" ]; then
   mkdir -p /download$REMOTE_NAME
+  echo "/download$REMOTE_NAME 不存在 已经成功创建"
 fi
 
-pcs synch -cd /download$REMOTE_NAME $REMOTE_NAME
+pcs synch -crd /download$REMOTE_NAME $REMOTE_NAME
 
 
