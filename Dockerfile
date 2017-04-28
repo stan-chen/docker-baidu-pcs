@@ -29,6 +29,7 @@ RUN apt-get autoremove -y \
     mkdir /download
 
 ADD download.sh /download.sh
+RUN chmod +x /download.sh
 ENV PCS_MAX_THREAD_NUM 20
 WORKDIR /download   
 VOLUME ["/download"] 
