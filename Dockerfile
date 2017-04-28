@@ -8,13 +8,16 @@ COPY sources.list /etc/apt/sources.list
 RUN apt-get update -y && \
     apt-get install -y --force-yes \
 	git \
-	gcc g++ build-essential libcurl4-openssl-dev libssl-dev \
+	gcc g++ build-essential libcurl4-openssl-dev libssl-dev && \
    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /opt/src
 RUN git clone https://github.com/GangZhuo/BaiduPCS.git &&\
+    cd ./BaiduPCS &&\
     make clean &&\
     make &&\
-    make install
+    make install &&\
+    
+RUN rm -rf /opt/src
     
 ENTRYPOINT pcs login --username=$USERNAME --password=$PASSWORD && /bin/bash
