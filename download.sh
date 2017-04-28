@@ -1,5 +1,7 @@
 #!/bin/bash
 
-pcs login --username=$USERNAME --password=$PASSWORD
+REMOTE_DIR_NAME = $REMOTE_NAME
+
+pcs synch -cd /download$REMOTE_DIR_NAME $REMOTE_DIR_NAME
 
 

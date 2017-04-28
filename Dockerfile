@@ -28,9 +28,10 @@ RUN apt-get autoremove -y \
     git gcc g++ build-essential && \
     mkdir /download
 
+ADD download.sh /download.sh
 ENV PCS_MAX_THREAD_NUM 20
 WORKDIR /download   
 VOLUME ["/download"] 
 ENTRYPOINT pcs login --username=$USERNAME --password=$PASSWORD &&\
         pcs set --max_thread=$PCS_MAX_THREAD_NUM &&\
-        /bin/bash
+        /bin/bash /download.sh
