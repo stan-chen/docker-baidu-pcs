@@ -6,7 +6,7 @@ RUN mv /etc/apt/sources.list /etc/apt/sources.list.bk
 COPY sources.list /etc/apt/sources.list
 
 RUN apt-get update -y && \
-    apt-get install -y --force-yes \
+    apt-get install -y \
 	git \
 	gcc g++ build-essential libcurl4-openssl-dev libssl-dev && \
    rm -rf /var/lib/apt/lists/*
