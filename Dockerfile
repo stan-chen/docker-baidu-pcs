@@ -18,8 +18,9 @@ RUN git clone https://github.com/GangZhuo/BaiduPCS.git &&\
     make &&\
     make install 
     
-RUN rm -rf /opt/src && \
-    apt-get autoremove -y &&\
+RUN rm -rf /opt/src
+WORKDIR /
+RUN apt-get autoremove -y &&\
     git gcc g++ build-essential
     
 ENTRYPOINT pcs login --username=$USERNAME --password=$PASSWORD && /bin/bash
